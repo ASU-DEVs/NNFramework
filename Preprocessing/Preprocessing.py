@@ -3,19 +3,11 @@ import pandas as pd
 import os
 import pickle
 
-#Insert path of MNIST or CIFAR Datasets.
-
-
 def preprocessing(path):
-
-
 
    # path = 'D:\\Gam3a\\Neural\\Project\\Datasets\\MNIST'
     data_directory_path = path
     filenames = os.listdir(data_directory_path)
-
-
-
 
     #For CIFAR Dataset:
 
@@ -52,11 +44,7 @@ def preprocessing(path):
         testFeatures = np.array(testData)
         testLabels = np.zeros(5)  #No train labels given in dataset
 
-
-
     return trainFeatures, trainLabels, testFeatures, testLabels
 
 
-
 preprocessing('D:\\Gam3a\\Neural\\Project\\Datasets\\CIFAR-10\\cifar-10-batches-py')
-            
