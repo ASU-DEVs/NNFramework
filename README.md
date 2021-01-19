@@ -48,7 +48,7 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all the
 
 ## __Architecture__ 
 
-![Screenshot](images/NeuralNetwork_Arc.png)
+![Screenshot](Images/NeuralNetwork_Arc.png)
 
 #### Traing the model follows the following pattern, illustrated in the image above 
 * Load the data
