@@ -1,19 +1,17 @@
 import pickle
 
-class Saver:
-    @staticmethod
-    def save(model, path):
-       # assert isinstance(model, nn.Module)
-        vars = {name: p["vars"] for name, p in model.params.items()}
-        with open(path, "wb") as f:
-            pickle.dump(vars, f)
+class saver():
+     
+    def save(data):
+        # Store data (serialize)
+        with open('model.pickle', 'wb') as handle:
+            pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
+        print("file saved")
+            
+    def restore():   
+        # Load data (deserialize)
+        with open('model.pickle', 'rb') as handle:
+            unserialized_data = pickle.load(handle)
+            return unserialized_data
 
-    @staticmethod
-    def restore(model, path):
-        #   assert isinstance(model, nn.Module)
-        with open(path, "rb") as f:
-            params = pickle.load(f)
-        for name, param in params.items():
-            for p_name in model.params[name]["vars"].keys():
-                model.params[name]["vars"][p_name][:] = param[p_name]
-                model.params[name]["vars"][p_name][:] = param[p_name]
+
