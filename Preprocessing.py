@@ -5,7 +5,7 @@ import pickle
 
 def preprocessing(path):
 
-    #path = 'D:\\Gam3a\\Neural\\Project\\Datasets\\MNIST'
+    #path = r'D:\Gam3a\Neural\Project\Datasets\CIFAR-10\cifar-10-batches-py'
     data_directory_path = path
     filenames = os.listdir(data_directory_path)
 
@@ -32,6 +32,15 @@ def preprocessing(path):
         trainLabels = trainLabels.reshape((-1,1))
         trainFeatures = trainFeatures.reshape((-1,3072))
         testLabels = np.array(testLabels)
+        testLabels =np.atleast_2d(testLabels)
+        trainLabels =np.atleast_2d(trainLabels.T)
+        trainFeatures = trainFeatures/255
+        testFeatures = testFeatures/255 
+        idx = np.random.permutation(len(trainFeatures))
+        trainFeatures = trainFeatures[idx]
+        TrainLabels = trainLabels.T[idx]
+        trainLabels = TrainLabels.T
+        
 
     #For MNIST Dataset:
 
@@ -43,10 +52,28 @@ def preprocessing(path):
         trainLabels = np.array(trainData[:,0])
         trainFeatures = np.array(trainData[:,1:])
         testFeatures = np.array(testData[:,1:])
-        testLabels = np.array(testData[:,0])
+        testLabels = np.array(testData[:,0])  
+        testLabels =np.atleast_2d(testLabels)
+        trainLabels =np.atleast_2d(trainLabels.T)
+        trainFeatures = trainFeatures/255
+        testFeatures = testFeatures/255 
+        idx = np.random.permutation(len(trainFeatures))
+        trainFeatures = trainFeatures[idx]
+        TrainLabels = trainLabels.T[idx]
+        trainLabels = TrainLabels.T
         Dataset = 'MNIST'
-
+        
     return trainFeatures, trainLabels, testFeatures, testLabels, Dataset
 
 
-#preprocessing(r'D:\Gam3a\Neural\Project\Datasets\MNIST')
+
+def labels_to_onehot(labels):
+    b = np.zeros((labels.size, labels.max()+1))
+    b[np.arange(labels.size),labels] = 1
+    b = b.T
+    
+    return b
+
+
+
+#'D:\Gam3a\Neural\Project\Datasets\CIFAR-10\cifar-10-batches-py'
