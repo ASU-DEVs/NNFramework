@@ -3,11 +3,10 @@ from modules.Preprocessing import *
 from modules.viz import *
 from modules.saver import *
 
-
 def main():
     
-    # trainFeatures, trainLabels, testFeatures, testLabels, Dataset = preprocessing(r'J:\College\Projects\Neurals\NNFrameWork\MyModel\CIFAR')
-    trainFeatures, trainLabels, testFeatures, testLabels, Dataset = preprocessing_online('MNIST')
+    trainFeatures, trainLabels, testFeatures, testLabels, Dataset = preprocessing(r'D:\4th CSE\Neural Networks\Project\MNISTcsv')
+    # trainFeatures, trainLabels, testFeatures, testLabels, Dataset = preprocessing_online('CIFAR10')
     trainLabels_ = trainLabels
     trainLabels = labels_to_onehot(trainLabels)
 
@@ -17,17 +16,17 @@ def main():
     layers_dims = [X.shape[0], 128, 10]
     activation_fns = ["sigmoid", "softmax"]
     batch_size = 30
-    epochs = 20
+    epochs = 30
     learning_rate = 0.5
     costt = "multiclass"
     metrics = ["accuracy" ,"macro"]
-    use_momentum = False
+    optimizer = "momentum"
     
     plotDataset(trainFeatures, Dataset)
 
     model = Model(layers_dims, activation_fns)
     
-    metrics_output = model.fit(X, Y, learning_rate, metrics, epochs, batch_size, costt, use_momentum)
+    metrics_output = model.fit(X, Y, learning_rate, metrics, epochs, batch_size, costt, optimizer)
 
     visualizeMetrics(metrics_output, epochs)
 
