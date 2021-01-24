@@ -63,9 +63,9 @@ def preprocessing_online(datasetName):
         Dataset = 'MNIST'
     
     elif datasetName == 'CIFAR10':
-        # CIFAR10 = 'https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz'
-        # R = requests.get(CIFAR10, allow_redirects=True)
-        # open('cifar-10-python.tar.gz', 'wb').write(R.content)
+        CIFAR10 = 'https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz'
+        R = requests.get(CIFAR10, allow_redirects=True)
+        open('cifar-10-python.tar.gz', 'wb').write(R.content)
         
         trainLabels = []
         trainFeatures = []
