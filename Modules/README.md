@@ -71,7 +71,7 @@ It mainly transform input image into a matrix, Reshape the filtter or kerenel an
 * This function is mainly for the multi dimensional array indexing, As shown in the fiqure, first for index i for every image, We create a vector  [0 0 1 1] and repeat it for every channel [0 0 1 1 0 0 1 1 0 0 1 1]
 Then with every level increase we increse it by 1 
 
-![GIF](/Images/index-i.gif)
+![GIF](/Images/index-i.gif) 
 
 * As for index j, We create a vector also for every channel but this time it goes like[0 1 0 1] and this repeat it for every channel, and by that we can create the index for each pixel 
 
