@@ -8,7 +8,8 @@ def sigmoid(x):
 
 
 def tanh(x):
-    t = (np.exp(x)-np.exp(-x))/(np.exp(x)+np.exp(-x))
+   # t = (np.exp(x)-np.exp(-x))/(np.exp(x)+np.exp(-x))
+    t = 1.7159 * np.tanh(x)
     return t
 
 def linear(x):
