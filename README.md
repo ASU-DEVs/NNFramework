@@ -2,9 +2,9 @@
 
 <div style="display:table-cell; vertical-align:middle; text-align:center" ><img src="Images/HEadImage.png" /></div>
 
-"Blank" is an open source package for machine learning that lets researchers push the state-of-the-art in ML and developers easily build and deploy ML-powered applications.
+"TTF" is an open source package for machine learning that lets researchers push the state-of-the-art in ML and developers easily build and deploy ML-powered applications.
 
-"blank" is built on python, wait for a C++ version soon.
+"TTF" is built on python, wait for a C++ version soon.
 
 Keep up-to-date with release announcements and security updates by checking this repo
 
