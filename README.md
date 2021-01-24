@@ -1,6 +1,6 @@
 # Simple Neural Network FrameWork 
 
-<div style="text-align:center"><img src="Images/the_office.jpg" /></div>
+<div style="display:table-cell; vertical-align:middle; text-align:center" ><img src="Images/the_office.jpg" /></div>
 
 "Blank" is an open source package for machine learning that lets researchers push the state-of-the-art in ML and developers easily build and deploy ML-powered applications.
 
