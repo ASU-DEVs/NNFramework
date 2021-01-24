@@ -126,6 +126,56 @@ class Conv():
         
         self.cache = None
 
+    def conv_single_step(self, X_slice_prev, W, b):
+        s = np.multiply(X_slice_prev, W) + float(b)
+        # Sum over all entries of the volume s.
+        Z = np.sum(s)
+        
+        return Z
+    
+    def zero_pad(self, X, P):
+        return np.pad(X, ((0,0), (P,P),(P,P), (0,0)), mode='constant', constant_values = (0,0))
+    
+    def fprob-slow(self,X):
+        X =  self.zero_pad(X , self.padding)
+        
+        m = X.shape[0]    
+        FH = self.filters.shape[0]
+        FW = self.filters.shape[1]
+        
+        # output array
+        Z = np.zeros((m, self.n_H, self.n_W, self.n_C)) 
+        
+        for i in range(m):                      # loop over the batch of training examples
+            X_prev = X[i,:,:,:]               # Select ith training example's padded activation
+            for h in range(self.n_H):           # loop over vertical axis of the output volume
+                # Find the vertical start and end of the current "slice" 
+                vert_start = h * self.stride
+                vert_end = vert_start + FH
+                for w in range(self.n_W):       # loop over horizontal axis of the output volume
+                    # Find the horizontal start and end of the current "slice"
+                    horiz_start = w * self.stride
+                    horiz_end = horiz_start + FW
+                    for c in range(self.n_C):   # loop over channels (= #filters) of the output volume                      
+                        X_slice_prev = X_prev[vert_start:vert_end,horiz_start:horiz_end,:]
+                        # Convolve the (3D) slice with the correct filter W and bias b, to get back one output neuron.
+                        Z[i, h, w, c] = self.conv_single_step(X_slice_prev, self.filters[:,:,:,c], self.b[:,:,:,c])
+        
+        if self.act_fn == "sigmoid":
+            A = sigmoid(Z)
+        elif self.act_fn == "relu":
+            A = relu(Z)
+        elif self.act_fn == "tanh":
+            A = tanh(Z)
+        elif self.act_fn == "linear":
+            A = linear(Z)
+        elif self.act_fn == "softmax":
+            A = softmax(Z)
+            
+        self.cache = X
+        
+        return out    
+
     def forward(self, X):
 
         m, n_C_prev, n_H_prev, n_W_prev = X.shape
@@ -164,3 +214,55 @@ class Conv():
         self.W['grad'] = dw_col.reshape((dw_col.shape[0], self.n_C, self.f, self.f)) 
                 
         return dX, self.W['grad'], self.b['grad']
+
+    def backward_prop(self, dZ):
+        (m, n_H_prev, n_W_prev, n_C_prev) = self.A_prev.shape
+        
+        dA_prev = np.zeros((m, n_H_prev, n_W_prev, n_C_prev))                           
+        self.dW = np.zeros((self.f, self.f, n_C_prev, self.n_C))
+        self.db = np.zeros((1, 1, 1, self.n_C))
+        
+        A_prev_pad = np.pad(self.A_prev, ((0, 0), (self.pad, self.pad), (self.pad, self.pad), (0, 0)), 'constant', constant_values=0)
+        dA_prev_pad = np.pad(dA_prev, ((0, 0), (self.pad, self.pad), (self.pad, self.pad), (0, 0)), 'constant', constant_values=0)
+    
+        if self.act_fn == "sigmoid":
+            dZ = derivative_sigmoid(dZ)
+        elif self.act_fn == "tanh":
+            dZ = derivative_tanh(dZ)
+        elif self.act_fn == "relu":
+            dZ = d_relu(dZ)
+        elif self.act_fn == "linear":
+            dZ = d_linear(dZ)    
+    
+        for i in range(m):                       # loop over the training examples
+            
+            # select ith training example from A_prev_pad and dA_prev_pad
+            a_prev_pad = A_prev_pad[i]
+            da_prev_pad = dA_prev_pad[i]
+            
+            for h in range(self.n_H):                   # loop over vertical axis of the output volume
+                for w in range(self.n_W):               # loop over horizontal axis of the output volume
+                    for c in range(self.n_C):           # loop over the channels of the output volume
+                    
+                        # Find the corners of the current "slice"
+                        vert_start = h * self.stride
+    
+                        vert_end = vert_start + self.f
+                        horiz_start = w * self.stride
+    
+                        horiz_end = horiz_start + self.f
+                        
+                        # Use the corners to define the slice from a_prev_pad
+                        a_slice = a_prev_pad[vert_start:vert_end, horiz_start:horiz_end, :]
+    
+                        # Update gradients for the window and the filter's parameters using the code formulas given above
+                        da_prev_pad[vert_start:vert_end, horiz_start:horiz_end, :] += self.W[:,:,:,c] * dZ[i, h, w, c]
+                        self.dW[:,:,:,c] += a_slice * dZ[i, h, w, c]
+                        self.db[:,:,:,c] += dZ[i, h, w, c]
+                        
+            dA_prev[i, :, :, :] = da_prev_pad[self.pad:-self.pad, self.pad:-self.pad, :]
+        
+
+        assert(dA_prev.shape == (m, n_H_prev, n_W_prev, n_C_prev))
+        
+        return dA_prev
