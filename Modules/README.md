@@ -1,6 +1,6 @@
-## __Modules__ 
+## __FC - Modules__ 
 
-### 1. _Dense Module_
+### 1. [_Dense Module_](https://github.com/ASU-DEVs/NNFramework/blob/main/Modules/dense.py)
 
 * This module contain the parameters initialization, layer forward propogation, layer backward propogation and also parameters update.
 
@@ -40,3 +40,10 @@
 ### 9 . [_Model module_]()
 
 * this module contain all the call back functions to train and fit the module, Also contain the predict function.
+
+
+## __CNN - Modules__ 
+
+### 1. [__Conv layer__](https://github.com/ASU-DEVs/NNFramework/blob/main/Modules/conv.py)
+
+* This module go through the implemention of the CNN layer of forward and backward 
