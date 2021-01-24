@@ -1,8 +1,16 @@
 # Simple Neural Network FrameWork 
 
-This repo will take you through all the steps to create and train a deep neural network without using any of the deep learning libraries like Tensorflow, caffe etc.
+![HeadIMAGE](Images/the_office.jpg)
 
-## __Installation__ 
+"Blank" is an open source package for machine learning that lets researchers push the state-of-the-art in ML and developers easily build and deploy ML-powered applications.
+
+"blank" is built on python, wait for a C++ version soon.
+
+Keep up-to-date with release announcements and security updates by checking this repo
+
+This repo will take you through all the steps to create and train a deep neural network.
+
+## __Install__ 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all the Prerequisites and build the neural network 
 
 ## __Prerequisites__ 
@@ -33,5 +41,5 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all the
 
 * [Single-predict](https://github.com/ASU-DEVs/NNFramework/blob/main/Predict-Single-image-example.py)
 
-## __Download__
+
 
