@@ -37,13 +37,15 @@
 
 ![GIF](/Images/animation_loss.gif)
 
-### 9 . [_Model module_]()
+### 9 . [_Model module_](https://github.com/ASU-DEVs/NNFramework/blob/main/Modules/model.py)
 
 * this module contain all the call back functions to train and fit the module, Also contain the predict function.
 
+### 10.[]
 
-## __CNN - Modules__ 
+## __CNN - Modules__
 
 ### 1. [__Conv layer__](https://github.com/ASU-DEVs/NNFramework/blob/main/Modules/conv.py)
 
 * This module go through the implemention of the CNN layer of forward and backward 
+* Forward and backward implementation is in both fast and slow implementation, We went throught the implementation 
