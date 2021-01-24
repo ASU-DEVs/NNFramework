@@ -12,7 +12,7 @@ class LeNet():
         self.conv2 = Conv(nb_filters = 16, filter_size = 5, nb_channels = 6)
         self.pool2 = AvgPool(filter_size = 2, stride = 2)
         self.pool2_shape = None
-        self.fc1 = layer(128, 256, "tanh")
+        self.fc1 = layer(128, 400, "tanh")
         self.fc2 = layer(84, 128, "tanh")
         self.fc3 = layer(10,84,"softmax")
         self.A = []
