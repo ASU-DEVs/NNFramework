@@ -156,8 +156,8 @@ class Model:
                     conf_mat = confusion_matrix(pred.T,y_class.T)
                     print("\t\tConfusion Matrix : \n",conf_mat)
                     
-                file_2.write(f'{i},{acc}'+'\n')
-                file_2.close()
+            file_2.write(f'{i},{acc}'+'\n')
+            file_2.close()
                 
                 
         # Loss GIF         
