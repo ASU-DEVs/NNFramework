@@ -77,7 +77,7 @@ Then with every level increase we increse it by 1
 
 ![GIF](/Images/index-j.gif)
 
-1.  ## __CNN - Modules__ 
+## 1.  __CNN - Modules__ 
 
 ### 1. [__Conv layer__](https://github.com/ASU-DEVs/NNFramework/blob/main/Modules/conv.py)
 
