@@ -29,10 +29,11 @@ def derivative_sigmoid(x):
 
 
 def derivative_tanh(x):
-    f = 1-(tanh(x)*tanh(x))
+   # f = 1-(tanh(x)*tanh(x))
+    f = 1.0 - np.tanh(x)**2
     return f
 
-
+    
 def d_linear(func):
     return np.ones(func.shape)
 
