@@ -11,6 +11,7 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all the
 2. pip install matplotlib 
 3. pip install pickle-mixin
 4. pip install pandas
+5. sudo apt-get install python-PIL
 ```
 
 ## __Architecture__ 
