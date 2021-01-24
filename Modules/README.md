@@ -13,7 +13,7 @@
 * This module save the model parameters to be used for predection. 
 * The model is built upon pickle implementation for save and restoring model 
 
-### 4. _Metrics module_
+### 4. [_Metrics module_](https://github.com/ASU-DEVs/NNFramework/blob/main/Modules/metrics.py)
 
 * This module contains all the accuracy Metrics that are used to evaluate the model, include but not limited to absolute_metrics, F1_score
 
@@ -23,7 +23,7 @@
 
 * Mainly the input data is divided into test data and training data
 
-### 6. _Loss module_
+### 6. [_Loss module_](https://github.com/ASU-DEVs/NNFramework/blob/main/Modules/loss.py)
 
 * this module contain all the implemented loss functions include but not limited to multiclass loss 
 
@@ -36,3 +36,7 @@
 * This module is for live plotting of both training loass and accuracy, Saved as a gif.
 
 ![GIF](/Images/animation_loss.gif)
+
+### 9 . [_Model module_]()
+
+* this module contain all the call back functions to train and fit the module, Also contain the predict function.
