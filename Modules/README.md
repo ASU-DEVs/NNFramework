@@ -2,7 +2,15 @@
 
 ### 1. [_Dense Module_](https://github.com/ASU-DEVs/NNFramework/blob/main/Modules/dense.py)
 
-* This module contain the parameters initialization, layer forward propogation, layer backward propogation and also parameters update.
+* This module contain the parameters initialization, layer forward propogation, layer backward propogation and also parameters update, 
+
+* Supported function 
+
+```bash
+1. SGD optimizer 
+2. rmsprop optimizer
+3. Adam optimizer 
+```
 
 ### 2. [_Viz Module_](https://github.com/ASU-DEVs/NNFramework/blob/main/Modules/viz.py)
 
@@ -13,9 +21,19 @@
 * This module save the model parameters to be used for predection. 
 * The model is built upon pickle implementation for save and restoring model 
 
+
 ### 4. [_Metrics module_](https://github.com/ASU-DEVs/NNFramework/blob/main/Modules/metrics.py)
 
 * This module contains all the accuracy Metrics that are used to evaluate the model, include but not limited to absolute_metrics, F1_score
+
+```bash
+ 1. accuracy_metrics
+ 2. confusion_matrix
+ 3. Accuracy
+ 4. Recall
+ 5. Precision
+ 6. F1_score
+```
 
 ### 5. [_Preprocessing module_](https://github.com/ASU-DEVs/NNFramework/blob/main/Modules/Preprocessing.py)
 
@@ -23,13 +41,26 @@
 
 * Mainly the input data is divided into test data and training data
 
+
 ### 6. [_Loss module_](https://github.com/ASU-DEVs/NNFramework/blob/main/Modules/loss.py)
 
 * this module contain all the implemented loss functions include but not limited to multiclass loss 
 
+```bash
+1. Mean square loss
+2. Multiclass loss 
+```
+
 ### 7. [_Actvfn module_](https://github.com/ASU-DEVs/NNFramework/blob/main/Modules/actvfn.py)
 
 * This module contain all activation functions implemented for our model and also their derivatves. 
+
+```bash
+1. Tanh
+2. Sigmoid
+3. Softmax
+4. Relu
+```
 
 ### 8. [_Live animation_](https://github.com/ASU-DEVs/NNFramework/blob/main/Modules/LiveAnimation.py)
 
