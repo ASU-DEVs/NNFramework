@@ -24,3 +24,14 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all the
 * compute the cost 
 * backward propagation and update parameters
 * predict and visualize accuracies
+
+## __Demo__
+
+* A step by step [network](https://github.com/ASU-DEVs/NNFramework/blob/main/FC-MNIST.py) to train MNIST numbers data set (Accuracy 98.9%)
+
+* [Restore a model and predict](https://github.com/ASU-DEVs/NNFramework/blob/main/Saver-example.py)
+
+* [Single-predict](https://github.com/ASU-DEVs/NNFramework/blob/main/Predict-Single-image-example.py)
+
+## __Download__
+
