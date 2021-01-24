@@ -1,4 +1,5 @@
 import numpy as np
+from modules.actvfn import *
 
 def get_indices(X_shape, HF, WF, stride, pad):
     """
@@ -136,7 +137,7 @@ class Conv():
     def zero_pad(self, X, P):
         return np.pad(X, ((0,0), (P,P),(P,P), (0,0)), mode='constant', constant_values = (0,0))
     
-    def fprob-slow(self,X):
+    def fprop_slow(self,X):
         X =  self.zero_pad(X , self.padding)
         
         m = X.shape[0]    
@@ -215,7 +216,7 @@ class Conv():
                 
         return dX, self.W['grad'], self.b['grad']
 
-    def backward_prop(self, dZ):
+    def bprop_slow(self, dZ):
         (m, n_H_prev, n_W_prev, n_C_prev) = self.A_prev.shape
         
         dA_prev = np.zeros((m, n_H_prev, n_W_prev, n_C_prev))                           
