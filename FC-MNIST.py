@@ -1,6 +1,7 @@
-from model import *
-from Preprocessing import *
-from viz import *
+from modules.model import *
+from modules.Preprocessing import *
+from modules.viz import *
+from modules.saver import *
 
 
 def main():
@@ -30,7 +31,7 @@ def main():
 
     visualizeMetrics(metrics_output, epochs)
 
-    # saver.save(model)    
+    saver.save(model)    
     # loaded_model = saver.restore()
     
     

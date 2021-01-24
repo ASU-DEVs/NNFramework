@@ -1,6 +1,6 @@
-from saver import *
-from Preprocessing import *
-from model import *
+from modules.saver import *
+from modules.Preprocessing import *
+from modules.model import *
 
 def main():
     
