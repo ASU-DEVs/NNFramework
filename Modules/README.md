@@ -71,7 +71,7 @@ It mainly transform input image into a matrix, Reshape the filtter or kerenel an
 * This function is mainly for the multi dimensional array indexing, As shown in the fiqure, first for index i for every image, We create a vector  [0 0 1 1] and repeat it for every channel [0 0 1 1 0 0 1 1 0 0 1 1]
 Then with every level increase we increse it by 1 
 
-![GIF](/Images/index-i.gif) 
+![GIF](/Images/index.gif) 
 
 * As for index j, We create a vector also for every channel but this time it goes like[0 1 0 1] and this repeat it for every channel, and by that we can create the index for each pixel 
 
@@ -89,7 +89,7 @@ Then with every level increase we increse it by 1
 
 * First we start by reshaping the output gradient or loss gradient, Then we reshape the weights or in our case the filters parameters, Then perform the matrix multiplication between the gradient and the kernel and finally reshape it back to an image using [col2img](https://github.com/ASU-DEVs/NNFramework/blob/main/Modules/conv.py#L77) 
 
-1. [__Pooling layer__](https://github.com/ASU-DEVs/NNFramework/blob/main/Modules/pool.py)
+### 1. [__Pooling layer__](https://github.com/ASU-DEVs/NNFramework/blob/main/Modules/pool.py)
 
 * pooling layer is mainly discuss the idea of lowering features inside out model by choosing Avg value of the out from image and Kernel multiplication, With that both features get less and also we increase the weights of the features we need.
 
